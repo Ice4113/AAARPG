@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://dt4fxp12uw8yi"]
+
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="1_7x8ki"]
+[ext_resource type="Script" path="res://Items/item_effect/item_effect.gd" id="1_eor6o"]
+[ext_resource type="Texture2D" uid="uid://bx4gl15flhjl6" path="res://Items/sprites/items.png" id="2_i7ul3"]
+[ext_resource type="Script" path="res://Items/item_effect/item_effect_heal.gd" id="2_wr0s6"]
+[ext_resource type="AudioStream" uid="uid://crhavjq1kcd37" path="res://Items/item_effect/hp-up.wav" id="3_u62iq"]
+
+[sub_resource type="Resource" id="Resource_45f3m"]
+script = ExtResource("2_wr0s6")
+heal_amount = 2
+audio = ExtResource("3_u62iq")
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2n6au"]
+atlas = ExtResource("2_i7ul3")
+region = Rect2(32, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_7x8ki")
+name = "Potion"
+description = "This Item Will Heal Your HP"
+texture = SubResource("AtlasTexture_2n6au")
+effects = Array[ExtResource("1_eor6o")]([SubResource("Resource_45f3m")])

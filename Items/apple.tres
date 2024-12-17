@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=8 format=3 uid="uid://klh0cfx62fpx"]
+
+[ext_resource type="Script" path="res://Items/item_effect/item_effect.gd" id="1_bycun"]
+[ext_resource type="AudioStream" uid="uid://crhavjq1kcd37" path="res://Items/item_effect/hp-up.wav" id="2_ibq3y"]
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="2_mxtir"]
+[ext_resource type="Script" path="res://Items/item_effect/item_effect_heal.gd" id="3_6drfm"]
+[ext_resource type="Texture2D" uid="uid://bx4gl15flhjl6" path="res://Items/sprites/items.png" id="5_wgohk"]
+
+[sub_resource type="Resource" id="Resource_5xfed"]
+script = ExtResource("3_6drfm")
+heal_amount = 1
+audio = ExtResource("2_ibq3y")
+use_description = ""
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mniql"]
+atlas = ExtResource("5_wgohk")
+region = Rect2(192, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_mxtir")
+name = "Apple"
+description = "A Good Heal Item Too"
+texture = SubResource("AtlasTexture_mniql")
+effects = Array[ExtResource("1_bycun")]([SubResource("Resource_5xfed")])

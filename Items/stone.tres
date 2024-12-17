@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dirf3bodcrfx6"]
+
+[ext_resource type="Script" path="res://Items/item_effect/item_effect.gd" id="1_7l6d0"]
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="1_pmao3"]
+[ext_resource type="Texture2D" uid="uid://bx4gl15flhjl6" path="res://Items/sprites/items.png" id="2_ejgq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h17ii"]
+atlas = ExtResource("2_ejgq7")
+region = Rect2(63, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_pmao3")
+name = "Stone"
+description = "It just use to throw Enemy or useless Thing"
+texture = SubResource("AtlasTexture_h17ii")
+effects = Array[ExtResource("1_7l6d0")]([])
