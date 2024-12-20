@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s370y7gof6cn"]
+
+[ext_resource type="Script" path="res://GeneralNodes/PersistentDataHelper/presitent-data-handler.gd" id="1_atpka"]
+
+[node name="PersitentDataHandler" type="Node"]
+script = ExtResource("1_atpka")

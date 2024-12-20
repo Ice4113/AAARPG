@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://buk0ip2fx1hlr"]
+
+[ext_resource type="Script" path="res://Items/item_effect/item_effect.gd" id="1_53vcp"]
+[ext_resource type="Script" path="res://Items/scripts/item_data.gd" id="2_r8pdm"]
+[ext_resource type="Texture2D" uid="uid://bx4gl15flhjl6" path="res://Items/sprites/items.png" id="3_421vu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ib853"]
+atlas = ExtResource("3_421vu")
+region = Rect2(224, 0, 32, 32)
+
+[resource]
+script = ExtResource("2_r8pdm")
+name = "Dungeon Key"
+description = "Key To Open Boss Room"
+texture = SubResource("AtlasTexture_ib853")
+effects = Array[ExtResource("1_53vcp")]([])

@@ -1,7 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://w2vbh7dyhrf2"]
+[gd_scene load_steps=49 format=3 uid="uid://w2vbh7dyhrf2"]
 
 [ext_resource type="Script" path="res://Player/Scripts/player.gd" id="1_83kqt"]
-[ext_resource type="Texture2D" uid="uid://b745a3cvcjw48" path="res://Player/Sprites/PlayerSprite02.png" id="2_qmu5k"]
+[ext_resource type="Texture2D" uid="uid://b745a3cvcjw48" path="res://Player/PlayerSprite02.png" id="2_b34i6"]
 [ext_resource type="Script" path="res://Player/Scripts/player_state_machine.gd" id="3_6tdf2"]
 [ext_resource type="Texture2D" uid="uid://bxctpfrkix31w" path="res://Player/Sprites/AttackSprite01.png" id="3_dteoo"]
 [ext_resource type="Script" path="res://Player/Scripts/state_idle.gd" id="4_e2efr"]
@@ -14,7 +14,10 @@
 [ext_resource type="Script" path="res://Player/Scripts/PlayerCamera.gd" id="11_316lw"]
 [ext_resource type="Script" path="res://Player/Scripts/state_stun.gd" id="11_acw73"]
 [ext_resource type="PackedScene" uid="uid://nkteywa1jq4x" path="res://GeneralNodes/HitBox/hit_box.tscn" id="13_8dwqv"]
+[ext_resource type="Script" path="res://Player/Scripts/push_area.gd" id="14_6bhpd"]
 [ext_resource type="AudioStream" uid="uid://ur7yxclpajur" path="res://Player/Audio/hit_player.wav" id="14_c1plc"]
+[ext_resource type="Script" path="res://Player/abilities/abilites.gd" id="17_4ccsb"]
+[ext_resource type="PackedScene" uid="uid://dh68c2f5nwdn8" path="res://GeneralNodes/ItemMagnet/item_magnet.tscn" id="18_3mq7b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jykmn"]
 
@@ -532,6 +535,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_exxa4"]
+size = Vector2(20, 17.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjl8y"]
+size = Vector2(20, 14.5)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dyf1u"]
 
@@ -567,7 +574,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D/AudioStreamPlayer2D")
+tracks/1/path = NodePath("Audio/AudioStreamPlayer2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -602,6 +609,9 @@ _data = {
 "default": SubResource("Animation_mh72n")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_j16mv"]
+radius = 25.0
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 motion_mode = 1
@@ -614,7 +624,7 @@ shape = SubResource("CircleShape2D_jykmn")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -20)
-texture = ExtResource("2_qmu5k")
+texture = ExtResource("2_b34i6")
 hframes = 16
 vframes = 3
 
@@ -671,10 +681,10 @@ script = ExtResource("11_acw73")
 editor_draw_limits = true
 script = ExtResource("11_316lw")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Audio" type="Node2D" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2D"]
-max_polyphony = 4
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Audio"]
+max_polyphony = 6
 
 [node name="Interactions" type="Node2D" parent="."]
 script = ExtResource("10_8xwjf")
@@ -689,6 +699,17 @@ position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_exxa4")
 debug_color = Color(0.596909, 0.925033, 0, 0.42)
 
+[node name="PushArea" type="Area2D" parent="Interactions"]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("14_6bhpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactions/PushArea"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_rjl8y")
+debug_color = Color(0.51948, 0.515052, 0.999045, 0.42)
+
 [node name="HitBox" parent="." instance=ExtResource("13_8dwqv")]
 collision_layer = 2
 
@@ -701,3 +722,14 @@ debug_color = Color(0.812238, 0.726225, 0.140669, 0.42)
 libraries = {
 "": SubResource("AnimationLibrary_8mp1v")
 }
+
+[node name="Abilities" type="Node" parent="."]
+script = ExtResource("17_4ccsb")
+
+[node name="ItemMagnet" parent="." instance=ExtResource("18_3mq7b")]
+magnet_strength = 2.0
+play_magnet_audio = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemMagnet"]
+position = Vector2(0, -15)
+shape = SubResource("CircleShape2D_j16mv")

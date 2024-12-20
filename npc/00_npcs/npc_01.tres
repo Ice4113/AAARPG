@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NPCResource" load_steps=4 format=3 uid="uid://btwpkdbjs50jk"]
+
+[ext_resource type="Script" path="res://npc/scripts/npc_resource.gd" id="1_0qk0h"]
+[ext_resource type="Texture2D" uid="uid://ci67dd47q5a6o" path="res://GUI/dialog_system/sprites/portraits/npc_portrait_01.png" id="1_lotqm"]
+[ext_resource type="Texture2D" uid="uid://kw4uatat7mvm" path="res://npc/npc_and_dialog/sprites/npc_sprite.png" id="3_i3wqa"]
+
+[resource]
+script = ExtResource("1_0qk0h")
+npc_name = "Jack"
+spirte = ExtResource("3_i3wqa")
+potrait = ExtResource("1_lotqm")
+dialog_audio_pitch = ""

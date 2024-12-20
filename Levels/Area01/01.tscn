@@ -1,15 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvi7l2qv6ug8m"]
+[gd_scene load_steps=16 format=3 uid="uid://dvi7l2qv6ug8m"]
 
-[ext_resource type="PackedScene" uid="uid://dntyccstpdw3m" path="res://Tile Maps/Sprites/grass-01.tscn" id="1_4qcgj"]
+[ext_resource type="PackedScene" uid="uid://dntyccstpdw3m" path="res://Tile Maps/grass-01.tscn" id="1_4qcgj"]
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_je4mb"]
+[ext_resource type="AudioStream" uid="uid://cmd300y010nh7" path="res://Levels/music/example_music_01.ogg" id="2_2bcu3"]
 [ext_resource type="PackedScene" uid="uid://bkaeehlno81kn" path="res://Levels/player_spawn.tscn" id="2_pbvqt"]
 [ext_resource type="PackedScene" uid="uid://dtdbhlghu6u6o" path="res://Props/Plants/plant.tscn" id="4_4isfh"]
 [ext_resource type="PackedScene" uid="uid://fg6lhx0qm2he" path="res://Levels/level_transition.tscn" id="5_q81da"]
-[ext_resource type="PackedScene" uid="uid://mxy860b0uq36" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="6_ua485"]
-[ext_resource type="Resource" uid="uid://dt4fxp12uw8yi" path="res://Items/potion.tres" id="7_isyc1"]
+[ext_resource type="PackedScene" uid="uid://745qdkj1j463" path="res://npc/npc.tscn" id="9_l2il4"]
+[ext_resource type="Resource" uid="uid://btwpkdbjs50jk" path="res://npc/00_npcs/npc_01.tres" id="10_303n8"]
+[ext_resource type="PackedScene" uid="uid://cuxww3ychabo1" path="res://Interactables/dialog/dialog_interaction.tscn" id="10_giemt"]
+[ext_resource type="PackedScene" uid="uid://cietjphg07cre" path="res://npc/npc_behavior_wander.tscn" id="10_ncnju"]
+[ext_resource type="Script" path="res://Interactables/dialog/scripts/dialog_text.gd" id="11_bpqpp"]
+[ext_resource type="Resource" uid="uid://fh884wy68ia7" path="res://npc/00_npcs/npc_02.tres" id="12_fayqw"]
+[ext_resource type="PackedScene" uid="uid://d4eudy1rcqbs8" path="res://npc/npc_behavior_patrol.tscn" id="13_sfhlt"]
+[ext_resource type="Resource" uid="uid://d2teqwbkg8suv" path="res://npc/00_npcs/00_hero.tres" id="13_t2dt0"]
+[ext_resource type="PackedScene" uid="uid://s2ni0n825pac" path="res://npc/patrol_location.tscn" id="14_q704b"]
 
 [node name="01" type="Node2D"]
 script = ExtResource("1_je4mb")
+music = ExtResource("2_2bcu3")
 
 [node name="Grass-01" parent="." instance=ExtResource("1_4qcgj")]
 position = Vector2(-1, 0)
@@ -42,7 +51,46 @@ position = Vector2(117, 79)
 [node name="Plant6" parent="." instance=ExtResource("4_4isfh")]
 position = Vector2(117, 49)
 
-[node name="Treasure-chest" parent="." instance=ExtResource("6_ua485")]
-position = Vector2(369, 2)
-item_data = ExtResource("7_isyc1")
-quantity = 2
+[node name="Npc" parent="." instance=ExtResource("9_l2il4")]
+position = Vector2(243, 95)
+npc_resource = ExtResource("12_fayqw")
+
+[node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("10_ncnju")]
+
+[node name="DialogInteraction" parent="Npc" instance=ExtResource("10_giemt")]
+
+[node name="DialogText" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("11_bpqpp")
+text = "Hi , [b]Hero[b] How Are u"
+npc_info = ExtResource("10_303n8")
+
+[node name="DialogText2" type="Node" parent="Npc/DialogInteraction"]
+script = ExtResource("11_bpqpp")
+text = "
+[wave]Yeah , It is me"
+npc_info = ExtResource("13_t2dt0")
+
+[node name="Npc2" parent="." instance=ExtResource("9_l2il4")]
+position = Vector2(508, 111)
+npc_resource = ExtResource("12_fayqw")
+
+[node name="NpcBehaviorPatrol" parent="Npc2" instance=ExtResource("13_sfhlt")]
+
+[node name="PatrolLocation2" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(52, 5)
+wait_time = 1.0
+
+[node name="PatrolLocation3" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
+modulate = Color(1, 1, 0, 1)
+position = Vector2(-6, -87)
+wait_time = 1.0
+
+[node name="PatrolLocation4" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
+modulate = Color(0, 1, 0, 1)
+position = Vector2(-6, -87)
+wait_time = 1.0
+
+[node name="PatrolLocation" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-71, 6)

@@ -7,7 +7,7 @@ var attacking : bool = false
 
 @onready var animation_player: AnimationPlayer = $"../../AnimationPlayer"
 @onready var attack_anim: AnimationPlayer = $"../../Sprite2D/AttackEffectSprite/AnimationPlayer"
-@onready var audio: AudioStreamPlayer2D = $"../../Node2D/AudioStreamPlayer2D"
+@onready var audio: AudioStreamPlayer2D = $"../../Audio/AudioStreamPlayer2D"
 @onready var walk: State = $"../Walk"
 @onready var idle: State = $"../Idle"
 @onready var hurt_box: HurtBox = %AttackHurtBox
