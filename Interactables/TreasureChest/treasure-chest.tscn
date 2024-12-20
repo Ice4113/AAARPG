@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2xnlg2m4h37d" path="res://Interactables/TreasureChest/treasure-chest.png" id="2_tpl6h"]
 [ext_resource type="Texture2D" uid="uid://bx4gl15flhjl6" path="res://Items/sprites/items.png" id="3_fmn48"]
 [ext_resource type="AudioStream" uid="uid://dw3v4am11hx1t" path="res://Interactables/TreasureChest/treasure-open.wav" id="4_pohfk"]
-[ext_resource type="PackedScene" uid="uid://s370y7gof6cn" path="res://persitent-data-handler.tscn" id="5_g3xu6"]
+[ext_resource type="PackedScene" uid="uid://s370y7gof6cn" path="res://GeneralNodes/PersistentDataHelper/persitent-data-handler.tscn" id="5_g3xu6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o403j"]
 atlas = ExtResource("3_fmn48")
@@ -197,6 +197,7 @@ size = Vector2(32, 11)
 size = Vector2(38, 19)
 
 [node name="Treasure-chest" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_fql3i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -245,3 +246,4 @@ shape = SubResource("RectangleShape2D_ogcfa")
 debug_color = Color(0.667297, 0.803614, 0.338941, 0.42)
 
 [node name="IsOpen" parent="." instance=ExtResource("5_g3xu6")]
+process_mode = 3

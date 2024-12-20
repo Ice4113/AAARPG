@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c0jjeu543xtcc"]
+[gd_scene load_steps=9 format=3 uid="uid://c0jjeu543xtcc"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_4wj2m"]
-[ext_resource type="PackedScene" uid="uid://dntyccstpdw3m" path="res://Tile Maps/Sprites/grass-01.tscn" id="2_8di3m"]
+[ext_resource type="PackedScene" uid="uid://dntyccstpdw3m" path="res://Tile Maps/grass-01.tscn" id="2_8di3m"]
+[ext_resource type="AudioStream" uid="uid://cmd300y010nh7" path="res://Levels/music/example_music_01.ogg" id="2_k72dt"]
 [ext_resource type="PackedScene" uid="uid://bkaeehlno81kn" path="res://Levels/player_spawn.tscn" id="3_34mds"]
 [ext_resource type="PackedScene" uid="uid://fg6lhx0qm2he" path="res://Levels/level_transition.tscn" id="6_26d2i"]
 [ext_resource type="PackedScene" uid="uid://mxy860b0uq36" path="res://Interactables/TreasureChest/treasure-chest.tscn" id="6_ksgrk"]
@@ -10,6 +11,7 @@
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_4wj2m")
+music = ExtResource("2_k72dt")
 
 [node name="Grass-01" parent="." instance=ExtResource("2_8di3m")]
 position = Vector2(-1, 0)
