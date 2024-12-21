@@ -9,4 +9,4 @@ script = ExtResource("2_umm5e")
 npc_name = "Max"
 spirte = ExtResource("3_5lda2")
 potrait = ExtResource("1_ifscu")
-dialog_audio_pitch = ""
+dialog_audio_pitch = 0.5
