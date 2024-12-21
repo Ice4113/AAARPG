@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="NPCResource" load_steps=3 format=3 uid="uid://d2teqwbkg8suv"]
 
-[ext_resource type="Texture2D" uid="uid://e5gogwfj3maq" path="res://GUI/dialog_system/sprites/portraits/hero_portrait.png" id="1_40myu"]
+[ext_resource type="Texture2D" uid="uid://e5gogwfj3maq" path="res://npc/sprites/portraits/hero_portrait.png" id="1_40myu"]
 [ext_resource type="Script" path="res://npc/scripts/npc_resource.gd" id="2_abt6p"]
 
 [resource]
 script = ExtResource("2_abt6p")
 npc_name = "Adam"
 potrait = ExtResource("1_40myu")
-dialog_audio_pitch = ""
+dialog_audio_pitch = 1.0
