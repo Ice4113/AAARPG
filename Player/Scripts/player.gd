@@ -9,6 +9,9 @@ var direction : Vector2 = Vector2.ZERO
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var state_machine: PlayerStateMachine = $StateMachine
 @onready var audio: AudioStreamPlayer2D = $Audio/AudioStreamPlayer2D
+@onready var lift: State_Lift = $StateMachine/Lift
+@onready var held_item: Node2D = $Sprite2D/HeldItem
+@onready var carry: State_Carry = $StateMachine/Carry
 
 
 
@@ -88,4 +91,10 @@ func make_invulnerable( _duration : float = 1.0) -> void:
 	await get_tree().create_timer(_duration).timeout
 	invulnerable = false
 	hit_box.monitoring = true
+	pass
+
+
+func pickup_item(_t : Throwable) -> void:
+	state_machine.ChangeState(lift)
+	carry.throwable = _t
 	pass
