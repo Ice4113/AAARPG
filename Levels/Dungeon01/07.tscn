@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://fg6lhx0qm2he" path="res://Levels/level_transition.tscn" id="5_ueij1"]
 [ext_resource type="Script" path="res://Levels/Dungeon01/dark_wizard/scripts/dark_wizard_boss.gd" id="6_67ck3"]
 [ext_resource type="PackedScene" uid="uid://dopxe1uvcn3dj" path="res://Levels/Dungeon01/dark_wizard/energy_beam.tscn" id="6_akw0q"]
-[ext_resource type="PackedScene" uid="uid://s370y7gof6cn" path="res://GeneralNodes/PersistentDataHelper/persitent-data-handler.tscn" id="6_bir5b"]
+[ext_resource type="PackedScene" uid="uid://s370y7gof6cn" path="res://persitent-data-handler.tscn" id="6_bir5b"]
 [ext_resource type="Texture2D" uid="uid://lvouaub78suk" path="res://Levels/Dungeon01/dark_wizard/sprites/boss-cloak.png" id="6_iavyq"]
 [ext_resource type="Texture2D" uid="uid://yb62gl7hmhfy" path="res://Levels/Dungeon01/dark_wizard/sprites/boss-hand.png" id="7_i0d7j"]
 [ext_resource type="PackedScene" uid="uid://q7p1hfg7d5pa" path="res://GeneralNodes/HurtBox/hurt_box.tscn" id="8_dapmv"]
@@ -271,6 +271,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="Animation" id="Animation_jo0kx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_luqxh"]
 resource_name = "down"
 length = 0.3333
@@ -286,21 +301,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_jo0kx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_mcuu6"]
@@ -362,82 +362,6 @@ radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jkdmj"]
 radius = 25.0
-
-[sub_resource type="Animation" id="Animation_8fw13"]
-resource_name = "idle"
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CloakSprite:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, -2),
-"update": 0,
-"values": [Vector2(0, -40), Vector2(0, -45), Vector2(0, -40)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CloakSprite/Hand01:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CloakSprite/Hand01:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, -2),
-"update": 0,
-"values": [Vector2(20, 1), Vector2(20, 4), Vector2(20, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("CloakSprite/Hand02:frame")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CloakSprite/Hand02:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, -2),
-"update": 0,
-"values": [Vector2(-20, 1), Vector2(-20, 4), Vector2(-20, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_hxpx0"]
 length = 0.001
@@ -514,8 +438,8 @@ tracks/5/keys = {
 "values": [Vector2(-20, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_il27r"]
-resource_name = "disappear"
+[sub_resource type="Animation" id="Animation_7xjv7"]
+resource_name = "appear"
 length = 0.6
 step = 0.1
 tracks/0/type = "value"
@@ -525,10 +449,10 @@ tracks/0/path = NodePath("CloakSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1, -2),
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(-2, 1, 1),
 "update": 0,
-"values": [Vector2(0, -40), Vector2(0, -45), Vector2(0, -55)]
+"values": [Vector2(0, -55), Vector2(0, -45), Vector2(0, -40)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -537,10 +461,10 @@ tracks/1/path = NodePath("..:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
+"times": PackedFloat32Array(0, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -549,10 +473,10 @@ tracks/2/path = NodePath("CloakSprite/Hand01:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [2, 1, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -561,8 +485,8 @@ tracks/3/path = NodePath("CloakSprite/Hand01:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.6),
-"transitions": PackedFloat32Array(1, 1, -2),
+"times": PackedFloat32Array(0, 0.5, 0.6),
+"transitions": PackedFloat32Array(-2, 1, 1),
 "update": 0,
 "values": [Vector2(20, 1), Vector2(20, 4), Vector2(20, 1)]
 }
@@ -573,10 +497,10 @@ tracks/4/path = NodePath("CloakSprite/Hand02:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1]
+"values": [2, 1, 0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -789,8 +713,8 @@ tracks/7/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_7xjv7"]
-resource_name = "appear"
+[sub_resource type="Animation" id="Animation_il27r"]
+resource_name = "disappear"
 length = 0.6
 step = 0.1
 tracks/0/type = "value"
@@ -800,10 +724,10 @@ tracks/0/path = NodePath("CloakSprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6),
-"transitions": PackedFloat32Array(-2, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, -2),
 "update": 0,
-"values": [Vector2(0, -55), Vector2(0, -45), Vector2(0, -40)]
+"values": [Vector2(0, -40), Vector2(0, -45), Vector2(0, -55)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -812,10 +736,10 @@ tracks/1/path = NodePath("..:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -824,10 +748,10 @@ tracks/2/path = NodePath("CloakSprite/Hand01:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 1, 0]
+"values": [0, 1]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -836,8 +760,8 @@ tracks/3/path = NodePath("CloakSprite/Hand01:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.6),
-"transitions": PackedFloat32Array(-2, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, -2),
 "update": 0,
 "values": [Vector2(20, 1), Vector2(20, 4), Vector2(20, 1)]
 }
@@ -848,10 +772,10 @@ tracks/4/path = NodePath("CloakSprite/Hand02:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 1, 0]
+"values": [0, 1]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -861,6 +785,82 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, -2),
+"update": 0,
+"values": [Vector2(-20, 1), Vector2(-20, 4), Vector2(-20, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8fw13"]
+resource_name = "idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloakSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, -2),
+"update": 0,
+"values": [Vector2(0, -40), Vector2(0, -45), Vector2(0, -40)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CloakSprite/Hand01:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloakSprite/Hand01:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, -2),
+"update": 0,
+"values": [Vector2(20, 1), Vector2(20, 4), Vector2(20, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CloakSprite/Hand02:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloakSprite/Hand02:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, -2),
 "update": 0,
 "values": [Vector2(-20, 1), Vector2(-20, 4), Vector2(-20, 1)]
@@ -876,8 +876,8 @@ _data = {
 "idle": SubResource("Animation_8fw13")
 }
 
-[sub_resource type="Animation" id="Animation_f64bv"]
-resource_name = "default"
+[sub_resource type="Animation" id="Animation_q6bxh"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -906,8 +906,8 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(3, 2, 1.5, 1), Color(1, 1, 1, 0), Color(3, 2, 1.5, 1), Color(1, 1, 1, 0), Color(3, 2, 1.5, 1), Color(1, 1, 1, 0), Color(3, 2, 1.5, 1), Color(1, 1, 1, 0), Color(3, 2, 1.5, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_q6bxh"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_f64bv"]
+resource_name = "default"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

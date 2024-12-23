@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://vhko4as0mwdm"]
+[gd_scene load_steps=8 format=3 uid="uid://vhko4as0mwdm"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_m2hd2"]
 [ext_resource type="PackedScene" uid="uid://qcn7li6gmmm8" path="res://Interactables/dungeon-01.tscn" id="2_cv1v2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b52c1clcfgenw" path="res://Interactables/dungeon/locked_door.tscn" id="3_q4msp"]
 [ext_resource type="PackedScene" uid="uid://bkaeehlno81kn" path="res://Levels/player_spawn.tscn" id="4_ppw6b"]
 [ext_resource type="PackedScene" uid="uid://fg6lhx0qm2he" path="res://Levels/level_transition.tscn" id="5_fcmhy"]
+[ext_resource type="PackedScene" uid="uid://bcdmblh42qcp4" path="res://Props/torches/torch_dungeon.tscn" id="7_1d2cs"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_m2hd2")
@@ -45,3 +46,15 @@ scale = Vector2(0.0390655, 0.553744)
 color = Color(0.305882, 0.360784, 0.32549, 1)
 energy = 0.8
 blend_mode = 2
+
+[node name="TorchDungeon" parent="." instance=ExtResource("7_1d2cs")]
+position = Vector2(15, 112)
+
+[node name="TorchDungeon2" parent="." instance=ExtResource("7_1d2cs")]
+position = Vector2(368, 112)
+
+[node name="TorchDungeon3" parent="." instance=ExtResource("7_1d2cs")]
+position = Vector2(369, 227)
+
+[node name="TorchDungeon4" parent="." instance=ExtResource("7_1d2cs")]
+position = Vector2(17, 232)

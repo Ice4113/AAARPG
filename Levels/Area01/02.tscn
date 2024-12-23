@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbgn6hcmmoxo4"]
+[gd_scene load_steps=8 format=3 uid="uid://dbgn6hcmmoxo4"]
 
 [ext_resource type="Script" path="res://Levels/scripts/level.gd" id="1_o8wm4"]
 [ext_resource type="AudioStream" uid="uid://cmd300y010nh7" path="res://Levels/music/example_music_01.ogg" id="2_7vo73"]
@@ -7,9 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://dtdbhlghu6u6o" path="res://Props/Plants/plant.tscn" id="4_8jy4l"]
 [ext_resource type="PackedScene" uid="uid://dgd7lp5xtdxk1" path="res://Enemies/Slime/slime.tscn" id="4_pogkm"]
 [ext_resource type="PackedScene" uid="uid://fg6lhx0qm2he" path="res://Levels/level_transition.tscn" id="6_0jpp1"]
-[ext_resource type="PackedScene" uid="uid://bafyvm0stquy4" path="res://Items/item_pickup/item_pickup.tscn" id="7_f1jqb"]
-[ext_resource type="Resource" uid="uid://dpk6rv76oc4nv" path="res://Items/gem.tres" id="8_dyyuy"]
-[ext_resource type="Resource" uid="uid://buk0ip2fx1hlr" path="res://Items/key_dungeon.tres" id="9_1oier"]
 
 [node name="02" type="Node2D"]
 script = ExtResource("1_o8wm4")
@@ -73,11 +70,3 @@ position = Vector2(305, -46)
 level = "res://Levels/Dungeon01/01.tscn"
 center_player = true
 side = 2
-
-[node name="ItemPickup" parent="." instance=ExtResource("7_f1jqb")]
-position = Vector2(568.958, 42.3131)
-item_data = ExtResource("8_dyyuy")
-
-[node name="ItemPickup2" parent="." instance=ExtResource("7_f1jqb")]
-position = Vector2(542, 41)
-item_data = ExtResource("9_1oier")

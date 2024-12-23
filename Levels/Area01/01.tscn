@@ -55,7 +55,7 @@ position = Vector2(117, 79)
 position = Vector2(117, 49)
 
 [node name="Npc" parent="." instance=ExtResource("9_l2il4")]
-position = Vector2(243, 95)
+position = Vector2(173, 118)
 npc_resource = ExtResource("12_fayqw")
 
 [node name="NpcBehaviorWander" parent="Npc" instance=ExtResource("10_ncnju")]
@@ -106,29 +106,29 @@ text = "PlaceHolder text "
 npc_info = ExtResource("10_303n8")
 
 [node name="Npc2" parent="." instance=ExtResource("9_l2il4")]
-position = Vector2(508, 111)
+position = Vector2(495, 167)
 npc_resource = ExtResource("12_fayqw")
 
 [node name="NpcBehaviorPatrol" parent="Npc2" instance=ExtResource("13_sfhlt")]
 
 [node name="PatrolLocation2" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
 modulate = Color(1, 0, 0, 1)
-position = Vector2(52, 5)
+position = Vector2(90, -96)
 wait_time = 1.0
 
 [node name="PatrolLocation3" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
 modulate = Color(1, 1, 0, 1)
-position = Vector2(-6, -87)
+position = Vector2(-29, -117)
 wait_time = 1.0
 
 [node name="PatrolLocation4" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
 modulate = Color(0, 1, 0, 1)
-position = Vector2(-6, -87)
+position = Vector2(-78, -7)
 wait_time = 1.0
 
 [node name="PatrolLocation" parent="Npc2/NpcBehaviorPatrol" instance=ExtResource("14_q704b")]
 modulate = Color(0, 1, 1, 1)
-position = Vector2(-71, 6)
+position = Vector2(38, 69)
 
 [node name="Pot" parent="." instance=ExtResource("18_k3lfg")]
 position = Vector2(246, 183)
