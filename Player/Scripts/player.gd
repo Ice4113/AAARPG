@@ -38,6 +38,13 @@ func _process(_delta):
 	).normalized()
 	pass
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("test"):
+		update_hp(-99)
+		player_damaged.emit(%AttackHurtBox)
+	pass
+
+
 func _physics_process(_delta):
 	move_and_slide()
 
@@ -70,13 +77,11 @@ func AnimDirection() -> String:
 
 func _take_damage(hurt_box : HurtBox) -> void:
 	if invulnerable == true:
-		true
-	update_hp(-hurt_box.damage)
+		return
+	
 	if hp > 0:
+		update_hp(-hurt_box.damage)
 		player_damaged.emit(hurt_box)
-	else:
-		player_damaged.emit(hurt_box)
-		update_hp(99)
 	pass
 
 func update_hp(_delta : int) -> void:
@@ -98,3 +103,7 @@ func pickup_item(_t : Throwable) -> void:
 	state_machine.ChangeState(lift)
 	carry.throwable = _t
 	pass
+
+func revive_player() -> void:
+	update_hp(99)
+	state_machine.ChangeState($StateMachine/Idle)
