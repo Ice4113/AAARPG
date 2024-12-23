@@ -32,4 +32,10 @@ position = Vector2(293, 142)
 position = Vector2(441, 160)
 item_data = ExtResource("7_ljrx0")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+scale = Vector2(0.0390655, 0.553744)
+color = Color(0.305882, 0.360784, 0.32549, 1)
+energy = 0.8
+blend_mode = 2
+
 [connection signal="enemies_defeated" from="EnemyCounter" to="ItemDropper" method="drop_item"]

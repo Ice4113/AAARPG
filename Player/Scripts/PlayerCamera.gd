@@ -9,14 +9,14 @@ var shake_trauma : float = 0.0
 func _ready():
 	LevelManager.TileMapBoundsChanged.connect(UpdateLimits)
 	UpdateLimits(LevelManager.current_tilemapbounds)
+	PlayerManager.camera_shook.connect(add_camera_shaked)
 	pass
 
 func _physics_process(delta: float) -> void:
 	if shake_trauma > 0:
 		shake_trauma = max(shake_trauma - shake_trauma * delta,0)
 		shake()
-		pass
-	pass
+
 
 func add_camera_shaked(val : float) -> void:
 	shake_trauma = val
@@ -24,7 +24,7 @@ func add_camera_shaked(val : float) -> void:
 
 func shake() -> void:
 	var amount : float = pow(shake_trauma * shake_power,2)
-	offset = Vector2(randf_range(-1,1),randf_range(-1,1)) * shake_max_offset
+	offset = Vector2(randf_range(-1,1),randf_range(-1,1)) * shake_max_offset * amount
 	pass
 
 

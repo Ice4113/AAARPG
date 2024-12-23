@@ -39,3 +39,9 @@ level = "res://Levels/Dungeon01/03.tscn"
 position = Vector2(194, -24)
 level = "res://Levels/Dungeon01/07.tscn"
 side = 2
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+scale = Vector2(0.0390655, 0.553744)
+color = Color(0.305882, 0.360784, 0.32549, 1)
+energy = 0.8
+blend_mode = 2

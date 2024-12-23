@@ -32,3 +32,9 @@ position = Vector2(481, 160)
 level = "res://Levels/Dungeon01/03.tscn"
 target_transition_area = "LevelTransition2"
 side = 1
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+scale = Vector2(0.0390655, 0.553744)
+color = Color(0.305882, 0.360784, 0.32549, 1)
+energy = 0.8
+blend_mode = 2
